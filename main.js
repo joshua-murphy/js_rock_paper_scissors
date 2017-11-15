@@ -2,7 +2,8 @@ var buttonRock = document.getElementById("rock")
 var buttonPaper = document.getElementById("paper")
 var buttonScissors = document.getElementById("scissors")
 var userChoice = "rock"
-
+var totalWins = 0
+var totalLosses = 0
 
 function resetScreen() {
   document.getElementById("opponent_rock").classList.remove("unhide")
@@ -105,17 +106,16 @@ function oppChoiceScissors() {
 function win() {
   document.getElementById("verdict").innerHTML = "You win!" 
   console.log("Win")
-  // location.reload()
+  totalWins++
 }
 
 function lose() {
   document.getElementById("verdict").innerHTML = "You lose!" 
   console.log("Lose")
-  // location.reload()
+  totalLosses++
 }
 
 function tie() {
   document.getElementById("verdict").innerHTML = "It's a tie!" 
   console.log("Tie")
-  // location.reload()
 }
