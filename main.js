@@ -1,9 +1,9 @@
 var buttonRock = document.getElementById("rock")
 var buttonPaper = document.getElementById("paper")
 var buttonScissors = document.getElementById("scissors")
-var userChoice = "rock"
+var userChoice
 var totalWins = 0
-var totalLosses = 0
+var totalLoss = 0
 
 function resetScreen() {
   document.getElementById("opponent_rock").classList.remove("unhide")
@@ -36,32 +36,32 @@ buttonScissors.addEventListener("click", function() {
 function getRandom(choice) {
   oppNum = Math.ceil(Math.random() * 3)
   console.log(oppNum)
-  assignOpp(oppNum)
+  assignOpp(oppNum, choice)
 }
 
-function assignOpp(num) {
-  switch(num) {
-    case 1:
+
+function assignOpp(oppNum, choice) {
+  if (oppNum === 1) {
       document.getElementById("result").innerHTML = "Opponent chooses:"
       document.getElementById("opponent_rock").classList.add("unhide")
-      oppChoiceRock()
-      break
-    case 2:
+      oppChoiceRock(choice)
+  }
+    else if (oppNum === 2) {
       document.getElementById("result").innerHTML = "Opponent chooses:"    
       document.getElementById("opponent_paper").classList.add("unhide")
-      oppChoicePaper()
-      break
-    case 3:
+      oppChoicePaper(choice)
+  }
+    else if (oppNum === 3) {
       document.getElementById("result").innerHTML = "Opponent chooses:"    
       document.getElementById("opponent_scissors").classList.add("unhide")      
-      oppChoiceScissors()
-      break
+      oppChoiceScissors(choice)
+    
   }
 }
 
 // I think this section can be simplified with one switch checking if userChoice defeats oppChoice
 
-function oppChoiceRock() {
+function oppChoiceRock(userChoice) {
   switch(userChoice) {
     case "rock":
       tie()
@@ -75,7 +75,7 @@ function oppChoiceRock() {
   }
 }
 
-function oppChoicePaper() {
+function oppChoicePaper(userChoice) {
   switch(userChoice) {
     case "rock":
       lose()
@@ -89,7 +89,7 @@ function oppChoicePaper() {
   }
 }
 
-function oppChoiceScissors() {
+function oppChoiceScissors(userChoice) {
   switch(userChoice) {
     case "rock":
       win()
@@ -107,12 +107,14 @@ function win() {
   document.getElementById("verdict").innerHTML = "You win!" 
   console.log("Win")
   totalWins++
+  document.getElementById("win_stat").innerHTML = totalWins
 }
 
 function lose() {
   document.getElementById("verdict").innerHTML = "You lose!" 
   console.log("Lose")
-  totalLosses++
+  totalLoss++
+  document.getElementById("loss_stat").innerHTML = totalLoss 
 }
 
 function tie() {
