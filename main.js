@@ -1,16 +1,23 @@
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+
 var buttonRock = document.getElementById("rock")
 var buttonPaper = document.getElementById("paper")
 var buttonScissors = document.getElementById("scissors")
-var userChoice
 var totalWins = 0
 var totalLoss = 0
+var totalTie = 0
 
 function resetScreen() {
   document.getElementById("opponent_rock").classList.remove("unhide")
   document.getElementById("opponent_paper").classList.remove("unhide")
   document.getElementById("opponent_scissors").classList.remove("unhide")  
 }
-
 
 buttonRock.addEventListener("click", function() {
   resetScreen()
@@ -38,7 +45,6 @@ function getRandom(choice) {
   console.log(oppNum)
   assignOpp(oppNum, choice)
 }
-
 
 function assignOpp(oppNum, choice) {
   if (oppNum === 1) {
@@ -120,4 +126,6 @@ function lose() {
 function tie() {
   document.getElementById("verdict").innerHTML = "It's a tie!" 
   console.log("Tie")
+  totalTie++
+  document.getElementById("tie_stat").innerHTML = totalTie
 }

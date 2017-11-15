@@ -5,23 +5,30 @@
 
   <body>
 
+      <div id="overlay" onclick="off()">
+          <div id="text">Rock - Paper - Scissors - Shoot</div>
+        </div>
+        
+
     <table align="right">
       <tr>
         <th>Wins</th>
         <th>Losses</th>
+        <th>Ties</th>
       </tr>
       <tr>
         <td id="win_stat">0</td>
         <td id="loss_stat">0</td>
+        <td id="tie_stat">0</td>
       </tr>
     </table>
 
     <h1>Rock - Paper - Scissors</h1>
     <h2>Choose your weapon!</h2>
   
-    <img class="imgs leftimg" id="rock" src="rock.png" alt="rock" width=10%>
-    <img class="imgs" id="paper" src="paper.png" alt="rock" width=10%>
-    <img class="imgs" id="scissors" src="scissors.png" alt="rock" width=10%>    
+    <img onclick="on()" class="imgs leftimg" id="rock" src="rock.png" alt="rock" width=10%>
+    <img onclick="on()" class="imgs" id="paper" src="paper.png" alt="rock" width=10%>
+    <img onclick="on()" class="imgs" id="scissors" src="scissors.png" alt="rock" width=10%>    
 
     <h3 id="result"></h3>
 
@@ -30,8 +37,6 @@
     <img class="hide opp_img" id="opponent_scissors" src="scissors.png" alt="opponent" width=15%>
 
     <h3 id="verdict"></h3>
-
-
 
     <script src="main.js"></script>
   </body>
