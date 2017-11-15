@@ -17,6 +17,8 @@ function resetScreen() {
   document.getElementById("opponent_rock").classList.remove("unhide")
   document.getElementById("opponent_paper").classList.remove("unhide")
   document.getElementById("opponent_scissors").classList.remove("unhide")  
+  document.getElementById("verdict").classList.remove("win")
+  document.getElementById("verdict").classList.remove("lose") 
 }
 
 buttonRock.addEventListener("click", function() {
@@ -110,6 +112,7 @@ function oppChoiceScissors(userChoice) {
 }
 
 function win() {
+  document.getElementById("verdict").classList.add("win")
   document.getElementById("verdict").innerHTML = "You win!" 
   console.log("Win")
   totalWins++
@@ -117,6 +120,7 @@ function win() {
 }
 
 function lose() {
+  document.getElementById("verdict").classList.add("lose")
   document.getElementById("verdict").innerHTML = "You lose!" 
   console.log("Lose")
   totalLoss++

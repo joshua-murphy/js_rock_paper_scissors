@@ -76,3 +76,11 @@ table, th, td {
 table {
   background-color: rgb(221, 221, 221);
 }
+
+.win {
+  color: green;
+}
+
+.lose {
+  color: red;
+}
